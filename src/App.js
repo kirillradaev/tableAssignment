@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Table from "./components/Table";
-import "./App.css";
-import { thisExpression } from "@babel/types";
+import Header from "./components/layouts/Header";
+import "./App.scss";
 
 class App extends Component {
   state = {
@@ -69,17 +69,23 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1 class="info">
-          {this.state.table.map(item => (
-            <h3>{item.user}</h3>
-          ))}{" "}
-        </h1>
-        <h2 class="info">
-          {this.state.table.map(item => (
-            <h5>{this.timeConverter(item.timestamp)}</h5>
-          ))}{" "}
-        </h2>
+      <div class="container my-container">
+        <div className="App">
+          <Header />
+          <div class="infoBlock">
+            <h1 className="info">
+              {this.state.table.map(item => (
+                <h3>{item.user}</h3>
+              ))}{" "}
+            </h1>
+            <h2 className="info">
+              {this.state.table.map(item => (
+                <h5>{this.timeConverter(item.timestamp)}</h5>
+              ))}{" "}
+            </h2>
+            {/* <h3 className="info">Steps</h3> */}
+          </div>
+        </div>
         <Table table={this.state.table} />
       </div>
     );

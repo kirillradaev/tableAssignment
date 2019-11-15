@@ -4,14 +4,16 @@ import { Emojione } from "react-emoji-render";
 class Table extends Component {
   render() {
     return this.props.table.map(data => (
-      <div>
-        <h1 class="info">Steps</h1>
-        <table class="dataTable">
+      <div className="data">
+        <table className="dataTable">
           <thead>
-            <tr>
+            <tr class="noHover">
+              <h3>Steps</h3>
+            </tr>
+            <tr class="tableInfo">
               <th>Name</th>
-              <th class=" time">Time Spent</th>
-              <th class=" result">Result</th>
+              <th className="time">Time Spent</th>
+              <th className="result">Result</th>
             </tr>
           </thead>
           <tbody>
@@ -19,16 +21,16 @@ class Table extends Component {
               <tr>
                 <td>{step.name}</td>
                 {step.time !== null ? (
-                  <td class="right-side time">{step.time} minutes</td>
+                  <td className="right-side time">{step.time} minutes</td>
                 ) : (
-                  <td class="right-side empty"> - </td>
+                  <td className="right-side empty"> - </td>
                 )}
                 {step.result !== "failure" ? (
-                  <td id="success" class="right-side result">
+                  <td id="success" className="right-side result">
                     <Emojione text="✅" />
                   </td>
                 ) : (
-                  <td id="failure" class="right-side result">
+                  <td id="failure" className="right-side result">
                     <Emojione text="❌" />
                   </td>
                 )}
